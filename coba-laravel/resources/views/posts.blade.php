@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WPU Blog | Posts</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <h1>Halaman Posts</h1>
-    <script src="js/script.js"></script>
-</body>
-</html>
+@extends('layouts.main')
+
+@section('container')
+@foreach($posts as $post)
+<article mb-5>
+    <h2>
+        <a href="/posts/{{ $post['slug'] }}">{{ $post["title"] }}</a>
+    </h2>
+    <h4>{{ $post["author"] }}</h4>
+    <p>{{ $post["body"] }}</p>
+</article>
+
+@endforeach
+@endsection
