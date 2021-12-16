@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
 
 class PostController extends Controller
@@ -15,11 +17,11 @@ class PostController extends Controller
         ]);
     }
 
-    public function show($slug)
+    public function show(Post $post)
     {
         return view('post', [
             "title" => "Single Post",
-            "post" => \App\Models\Post::find($slug)
+            "post" => $post
         ]);
     }
 }
